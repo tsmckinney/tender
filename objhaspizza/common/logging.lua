@@ -15,3 +15,6 @@ end
 function Logging:fatal(msg)
     error("Object Has Fatal Error "..os.date()..": " .. msg)
 end
+function Logging:assert(msg,val)
+    assert(val,("Object Has Assertion "..os.date()..": " .. msg)
+end
