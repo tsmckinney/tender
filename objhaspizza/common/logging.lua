@@ -1,20 +1,20 @@
-Logging = Object:extend()
+OHLogging = Object:extend()
 
-function Logging:new()
+function OHLogging:new()
     
 end
-function Logging:info(msg)
+function OHLogging:info(msg)
     print("Object Has Info "..os.date()..": " .. msg)
 end
-function Logging:warn(msg)
+function OHLogging:warn(msg)
     print("Object Has Warning "..os.date()..": " .. msg)
 end
-function Logging:error(msg)
+function OHLogging:error(msg)
     print("Object Has Error "..os.date()..": " .. msg)
 end
-function Logging:fatal(msg)
+function OHLogging:fatal(msg)
     error("Object Has Fatal Error "..os.date()..": " .. msg)
 end
-function Logging:assert(msg,val)
-    assert(val,("Object Has Assertion "..os.date()..": " .. msg)
+function OHLogging:assert(msg,val)
+    assert(val,("Object Has Assertion "..os.date()..": " .. msg))
 end

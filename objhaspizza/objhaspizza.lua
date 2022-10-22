@@ -3,8 +3,8 @@ ObjHasPizza = Object:extend()
 require("object-has-pizza.objhaspizza.common.window")
 require("object-has-pizza.objhaspizza.common.logging")
 function ObjHasPizza:new()
-    self.window = Window()
-    self.log = Logging()
+    self.window = OHWindow()
+    self.log = OHLogging()
 end
 function ObjHasPizza:update(dt)
     

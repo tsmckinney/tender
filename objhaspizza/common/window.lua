@@ -1,23 +1,29 @@
-Window = Object:extend()
-
-function Window:new()
+OHWindow = Object:extend()
+require("object-has-pizza.objhaspizza.common.logging")
+local isWindowOpen
+local log
+function OHWindow:new()
     --Window Defaults
-    self.isWindowOpen = true
+    isWindowOpen = true
+    log = OHLogging()
     love.window.setMode(0,0,{fullscreen = true})
     love.window.setTitle("Object_Has_App")
+    log:info("Window opened")
 end
 
-function Window:setMode(w,h,s)
-    if self.isWindowOpen == true then
+function OHWindow:setMode(w,h,s)
+    if isWindowOpen == true then
         love.window.updateMode(w,h,s)
     else
+        isWindowOpen = true
         love.window.setMode(w,h,s)
     end
 end
-function Window:setTitle(t)
+function OHWindow:setTitle(t)
     love.window.setTitle(t)
 end
-function Window:close()
+function OHWindow:close()
     love.window.close()
-    self.isWindowOpen = false
+    isWindowOpen = false
+    log:info("Window closed. Open the OHWindow with (whatever value name you assign to the engine).window:setMode.")
 end
