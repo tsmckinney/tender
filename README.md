@@ -4,4 +4,4 @@ WARNING: This project is currently a work in progress. Some stuff might not work
 
 ## Requirements:
 * [Love2D, of course](https://github.com/love2d/love)
-* [Classic by rxi](https://github.com/rxi/classic)
+* [Classic by rxi](https://github.com/rxi/classic) (It's already included)
