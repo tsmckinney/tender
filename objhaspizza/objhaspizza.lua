@@ -1,14 +1,19 @@
 ObjHasPizza = Object:extend()
---I know, it's a long class name, but it's better to be safe than sorry.
+--I know, they're long class names, but it's better to be safe than sorry.
 require("object-has-pizza.objhaspizza.common.window")
 require("object-has-pizza.objhaspizza.common.logging")
+require("object-has-pizza.objhaspizza.graphics.imgload")
 function ObjHasPizza:new()
     self.window = OHWindow()
     self.log = OHLogging()
+    self.imgload = OHImgLoad()
 end
 function ObjHasPizza:update(dt)
     
 end
 function ObjHasPizza:draw()
     
+end
+function ObjHasPizza:quit()
+    love.event.quit()
 end
