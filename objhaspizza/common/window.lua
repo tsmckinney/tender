@@ -1,4 +1,4 @@
-OHWindow = Object:extend()
+OHWindow = ObjHasPizza:extend()
 require("object-has-pizza.objhaspizza.common.logging")
 local isWindowOpen
 local log

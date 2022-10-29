@@ -1,4 +1,4 @@
-OHLogging = Object:extend()
+OHLogging = ObjHasPizza:extend()
 
 function OHLogging:new()
     
