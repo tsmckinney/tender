@@ -8,3 +8,6 @@ WARNING: This project is currently a work in progress. Some stuff might not work
 
 ## Thanks:
 * To rxi for Classic
+
+## Pull Requests:
+If you find a bug or want to add something new, simply make an issue first, and then I'm going to get started working on it in a separate branch nicknamed after said issue. If anyone opens a pull request, I'm going to let that person do their thing. Once I merge the changes, I'll then get rid of the branch I was originally using to work on fixing the bug or adding the feature.
