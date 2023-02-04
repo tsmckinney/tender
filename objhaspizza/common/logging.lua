@@ -18,3 +18,6 @@ end
 function OHLogging:assert(msg,val)
     assert(val,("Object Has Assertion "..os.date()..": " .. msg))
 end
+function OHLogging:__tostring()
+   return "OHLogging"
+end

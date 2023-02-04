@@ -4,26 +4,36 @@ local isWindowOpen
 local log
 function OHWindow:new()
     --Window Defaults
-    isWindowOpen = true
-    log = OHLogging()
-    love.window.setMode(0,0,{fullscreen = true})
+    self.isWindowOpen = true
+    self.log = OHLogging()
     love.window.setTitle("Object_Has_App")
-    log:info("Window opened")
+    self.log:info("Window opened")
 end
 
 function OHWindow:setMode(w,h,s)
-    if isWindowOpen == true then
+    if self.isWindowOpen == true then
         love.window.updateMode(w,h,s)
     else
-        isWindowOpen = true
+        self.isWindowOpen = true
         love.window.setMode(w,h,s)
+    end
+    love.window.getDesktopDimensions()
+    if w == 0 and h == 0 then
+        dw, dh = love.window.getDesktopDimensions()
+        self.log:info("Window mode changed to "..dw.."x"..dh.." with settings: "..tostring(s))
+    else
+        self.log:info("Window mode changed to "..w.."x"..h.." with settings: "..tostring(s))
     end
 end
 function OHWindow:setTitle(t)
     love.window.setTitle(t)
+    self.log:info("Title changed to "..t)
 end
 function OHWindow:close()
     love.window.close()
-    isWindowOpen = false
-    log:info("Window closed. Open the OHWindow with (whatever value name you assign to the engine).window:setMode.")
+    self.isWindowOpen = false
+    self.log:info("Window closed. Open the OHWindow with (whatever value name you assign to the engine).window:setMode.")
 end
+function OHWindow:__tostring()
+    return "OHWindow"
+ end

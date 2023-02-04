@@ -35,3 +35,6 @@ function OHImage:draw(image,x,y,r,sfx,sfy,ox,oy,shearx,sheary)
     sheary = sheary or 0
     love.graphics.draw(image.tex,x,y,r,sfx,sfy,ox,oy,shearx,sheary)
 end
+function OHImage:__tostring()
+    return "OHImage"
+end
