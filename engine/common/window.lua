@@ -1,17 +1,17 @@
-OHWindow = ObjHasPizza:extend()
-require("object-has-pizza.objhaspizza.common.logging")
+TWindow = Tender:extend()
+require("tender.engine.common.logging")
 local isWindowOpen
 local log
-function OHWindow:new()
+function TWindow:new()
     --Window Defaults
     isWindowOpen = true
-    log = OHLogging()
+    log = TLogging()
     love.window.setMode(0,0,{fullscreen = true})
-    love.window.setTitle("Object_Has_App")
+    love.window.setTitle("Tender_App")
     log:info("Window opened")
 end
 
-function OHWindow:setMode(w,h,s)
+function TWindow:setMode(w,h,s)
     if isWindowOpen == true then
         love.window.updateMode(w,h,s)
     else
@@ -19,11 +19,11 @@ function OHWindow:setMode(w,h,s)
         love.window.setMode(w,h,s)
     end
 end
-function OHWindow:setTitle(t)
+function TWindow:setTitle(t)
     love.window.setTitle(t)
 end
-function OHWindow:close()
+function TWindow:close()
     love.window.close()
     isWindowOpen = false
-    log:info("Window closed. Open the OHWindow with (whatever value name you assign to the engine).window:setMode.")
+    log:info("Window closed. Open the TWindow with (whatever value name you assign to the engine).window:setMode.")
 end

@@ -1,7 +1,7 @@
-OHEntity = ObjHasPizza:extend()
-require("object-has-pizza.objhaspizza.graphics.image")
-function OHEntity:new(tex,tflags,xpos,ypos,width,height,rotate)
-    self.texload = OHImage()
+TEntity = Tender:extend()
+require("tender.engine.graphics.image")
+function TEntity:new(tex,tflags,xpos,ypos,width,height,rotate)
+    self.texload = TImage()
     self.texture = self.texload:load(tex,tflags)
     self.x = xpos
     self.y = ypos
@@ -11,11 +11,11 @@ function OHEntity:new(tex,tflags,xpos,ypos,width,height,rotate)
     self.h = (1/self.texheight) * height
     self.r = rotate
 end
-function OHEntity:remove()
+function TEntity:remove()
     
 end
-function OHEntity:update(dt)
+function TEntity:update(dt)
 end
-function OHEntity:draw()
+function TEntity:draw()
     self.texload:draw(self.texture,self.x,self.y,self.r,self.w,self.h)
 end
