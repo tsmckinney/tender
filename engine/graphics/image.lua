@@ -1,8 +1,8 @@
-OHImage = ObjHasPizza:extend()
+TImage = Tender:extend()
 
-function OHImage:new()
+function TImage:new()
 end
-function OHImage:load(link,flags)
+function TImage:load(link,flags)
     flags = flags or {}
     local image = {}
     image.tex = love.graphics.newImage(link, flags)
@@ -11,19 +11,19 @@ function OHImage:load(link,flags)
     image.height = image.tex:getHeight()
     return image
 end
-function OHImage:update(dt)
+function TImage:update(dt)
     
 end
-function OHImage:getDimensions(image)
+function TImage:getDimensions(image)
     return image.dimensions
 end
-function OHImage:getWidth(image)
+function TImage:getWidth(image)
     return image.width
 end
-function OHImage:getHeight(image)
+function TImage:getHeight(image)
     return image.height
 end
-function OHImage:draw(image,x,y,r,sfx,sfy,ox,oy,shearx,sheary)
+function TImage:draw(image,x,y,r,sfx,sfy,ox,oy,shearx,sheary)
     x = x or 0
     y = y or 0
     r = r or 0
