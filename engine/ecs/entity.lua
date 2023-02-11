@@ -19,3 +19,6 @@ end
 function TEntity:draw()
     self.texload:draw(self.texture,self.x,self.y,self.r,self.w,self.h)
 end
+function TEntity:__tostring()
+    return "TEntity"
+end

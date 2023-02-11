@@ -1,27 +1,27 @@
-OHScene = ObjHasPizza:extend()
-require("object-has-pizza.objhaspizza.graphics.image")
-require("object-has-pizza.objhaspizza.ecs.entity")
-require("object-has-pizza.objhaspizza.common.logging")
-function OHScene:new(entities)
-    self.log = OHLogging()
+TScene = ObjHasPizza:extend()
+require("tender.engine.graphics.image")
+require("tender.engine.ecs.entity")
+require("tender.engine.common.logging")
+function TScene:new(entities)
+    self.log = TLogging()
     self.entities = entities
-    self.log:assert(self:__tostring() == "OHScene", self:__tostring().." isn't a scene.")
+    self.log:assert(self:__tostring() == "TScene", self:__tostring().." isn't a scene.")
 end
-function OHScene:remove()
+function TScene:remove()
     
 end
-function OHScene:update(dt)
+function TScene:update(dt)
     for index, value in ipairs(self.entities) do
         self.entities[value]:update(dt)
         self.log:info("Entity <" ..index.."."..value.."> updated")
     end
 end
-function OHScene:draw()
+function TScene:draw()
     for index, value in ipairs(self.entities) do
         self.entities[value]:draw()
         self.log:info("Entity <" ..index.."."..value.."> drawn")
     end
 end
-function OHScene:__tostring()
-    return "OHScene"
+function TScene:__tostring()
+    return "TScene"
 end
