@@ -2,10 +2,11 @@ TScene = ObjHasPizza:extend()
 require("tender.engine.graphics.image")
 require("tender.engine.ecs.entity")
 require("tender.engine.common.logging")
-function TScene:new(entities)
+function TScene:new(entities,name, id)
     self.log = TLogging()
     self.entities = entities
-    self.log:assert(self:__tostring() == "TScene", self:__tostring().." isn't a scene.")
+    self.name = name
+    self.id = id
 end
 function TScene:remove()
     
@@ -13,15 +14,28 @@ end
 function TScene:update(dt)
     for index, value in ipairs(self.entities) do
         self.entities[value]:update(dt)
-        self.log:info("Entity <" ..index.."."..value.."> updated")
     end
+    self.log:info("Scene <" ..self.__tostring().."> updated")
 end
 function TScene:draw()
     for index, value in ipairs(self.entities) do
         self.entities[value]:draw()
-        self.log:info("Entity <" ..index.."."..value.."> drawn")
     end
+    self.log:info("Scene <" ..self.__tostring().."> drawn")
+end
+function TScene:addEntity(entity)
+    local entityID = math.randomseed(os.time)
+    entity.id = entityID
+    table.insert( self.components, entityID, entity )
+    return {entity = entity, id = entityID}
+end
+function TScene:removeEntity(entity)
+    table.remove(self.components, entity.id)
 end
 function TScene:__tostring()
-    return "TScene"
+    if self.name == nil then
+        return "TScene"
+    else
+        return self.name
+    end
 end

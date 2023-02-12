@@ -4,11 +4,12 @@ require("tender.engine.common.window")
 require("tender.engine.common.logging")
 require("tender.engine.graphics.image")
 require("tender.engine.graphics.debugGrid")
-function Tender:new()
+function Tender:new(name)
     self.window = TWindow()
     self.log = TLogging()
     self.imgload = TImage()
     self.debugGrid = TDebugGrid(0.5)
+    self.project = TProject(name)
 end
 function Tender:update(dt)
     
