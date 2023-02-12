@@ -2,12 +2,13 @@ TWindow = Tender:extend()
 require("tender.engine.common.logging")
 local isWindowOpen
 local log
-function TWindow:new()
+function TWindow:new(name)
     --Window Defaults
+    name = name or "Tender_App"
     isWindowOpen = true
     log = TLogging()
     love.window.setMode(0,0,{fullscreen = true})
-    love.window.setTitle("Tender_App")
+    love.window.setTitle(name)
     log:info("Window opened")
 end
 

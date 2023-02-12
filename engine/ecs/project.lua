@@ -1,4 +1,4 @@
-TProject = ObjHasPizza:extend()
+TProject = Tender:extend()
 require("tender.engine.graphics.image")
 require("tender.engine.ecs.entity")
 require("tender.engine.common.logging")
