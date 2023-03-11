@@ -1,9 +1,8 @@
 TEntity = Tender:extend()
 require("tender.engine.graphics.image")
 require("tender.engine.ecs.component")
-function TEntity:new(components, id)
-    components = components or {}
-    self.components = components
+function TEntity:new(id)
+    self.components = {}
     self.id = id
 end
 function TEntity:remove()
@@ -30,6 +29,7 @@ end
 function TEntity:removeComponent(component)
     table.remove(self.components, component.id)
 end
+
 function TEntity:__tostring()
     return "TEntity"
 end

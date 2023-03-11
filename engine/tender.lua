@@ -13,10 +13,11 @@ function Tender:new(name, debugMode)
     self.project = TProject(name)
 end
 function Tender:update(dt)
-    
+    self.project:update(dt)
 end
 function Tender:draw()
     self.debugGrid:draw()
+    self.project:draw()
 end
 function Tender:quit()
     love.event.quit()

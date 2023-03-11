@@ -1,40 +1,49 @@
 TProject = Tender:extend()
 require("tender.engine.graphics.image")
-require("tender.engine.ecs.entity")
+require("tender.engine.ecs.scene")
 require("tender.engine.common.logging")
-function TProject:new(scenes, name)
+local scenes
+function TProject:new(name)
     self.log = TLogging()
     self.name = name
-    self.scenes = scenes
+    scenes = {}
+    self.activeScene = nil
 end
 function TProject:remove()
     
 end
 function TProject:update(dt)
-    for index, value in ipairs(self.scenes) do
-        self.scenes[value]:update(dt)
+    for index, value in ipairs(scenes) do
+        if self.activeScene ~= nil then
+            if scenes[value] == self.activeScene then
+                self.activeScene:update(dt)
+            end
+        end
     end
-    self.log:info("Project <" ..self.__tostring().."> updated")
+    self.log:info("Project <" ..self.name.."> updated")
 end
 function TProject:draw()
-    for index, value in ipairs(self.scenes) do
-        self.scenes[value]:draw()
+    for index, value in ipairs(scenes) do
+        --Only update and draw if there's an active scene.
+        if self.activeScene ~= nil then
+            if scenes[value] == self.activeScene then
+                self.activeScene:draw()
+            end
+        end
     end
-    self.log:info("Project <" ..self.__tostring().."> drawn")
+    self.log:info("Project <" ..self.name.."> drawn")
 end
 function TProject:addScene(scene)
-    local sceneID = math.randomseed(os.time)
-    scene.id = sceneID
-    table.insert( self.components, sceneID, scene )
+    math.randomseed(os.time())
+    local sceneID = math.random()
+    table.insert( scenes, sceneID, scene )
     return {scene = scene, id = sceneID}
 end
 function TProject:removeScene(scene)
-    table.remove(self.components, scene.id)
+    table.remove(scenes, scene.id)
 end
-function TProject:__tostring()
-    if self.name == nil then
-        return "TProject"
-    else
-        return self.name
-    end
+function TProject:setActiveScene(scene)
+    self.activeScene:onUnload()
+    self.activeScene = scene
+    self.activeScene:onLoad(scene.entities)
 end
