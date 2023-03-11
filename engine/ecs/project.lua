@@ -3,10 +3,11 @@ require("tender.engine.graphics.image")
 require("tender.engine.ecs.scene")
 require("tender.engine.common.logging")
 local scenes
-function TProject:new(name)
+function TProject:new(name,debug)
     self.log = TLogging()
     self.name = name
     scenes = {}
+    self.debug = debug
     self.activeScene = nil
 end
 function TProject:remove()
@@ -20,7 +21,9 @@ function TProject:update(dt)
             end
         end
     end
-    self.log:info("Project <" ..self.name.."> updated")
+    if self.debug then
+        self.log:info("Project <" ..self.name.."> updated")
+    end
 end
 function TProject:draw()
     for index, value in ipairs(scenes) do
@@ -31,7 +34,9 @@ function TProject:draw()
             end
         end
     end
-    self.log:info("Project <" ..self.name.."> drawn")
+    if self.debug then
+        self.log:info("Project <" ..self.name.."> drawn")
+    end
 end
 function TProject:addScene(scene)
     math.randomseed(os.time())

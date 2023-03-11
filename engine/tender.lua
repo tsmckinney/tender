@@ -10,7 +10,7 @@ function Tender:new(name, debugMode)
     self.log = TLogging()
     self.imgload = TImage()
     self.debugGrid = TDebugGrid(1,debugMode)
-    self.project = TProject(name)
+    self.project = TProject(name,debugMode)
 end
 function Tender:update(dt)
     self.project:update(dt)
