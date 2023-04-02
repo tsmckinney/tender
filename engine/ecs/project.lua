@@ -3,21 +3,22 @@ require("tender.engine.graphics.image")
 require("tender.engine.ecs.scene")
 require("tender.engine.common.logging")
 local scenes
+local activeScene
 function TProject:new(name,debug)
     self.log = TLogging()
     self.name = name
     scenes = {}
     self.debug = debug
-    self.activeScene = nil
+    activeScene = TScene()
 end
 function TProject:remove()
     
 end
 function TProject:update(dt)
     for index, value in ipairs(scenes) do
-        if self.activeScene ~= nil then
-            if scenes[value] == self.activeScene then
-                self.activeScene:update(dt)
+        if activeScene ~= nil then
+            if scenes[value] == activeScene then
+                activeScene:update(dt)
             end
         end
     end
@@ -28,9 +29,9 @@ end
 function TProject:draw()
     for index, value in ipairs(scenes) do
         --Only update and draw if there's an active scene.
-        if self.activeScene ~= nil then
-            if scenes[value] == self.activeScene then
-                self.activeScene:draw()
+        if activeScene ~= nil then
+            if scenes[value] == activeScene then
+                activeScene:draw()
             end
         end
     end
@@ -48,7 +49,5 @@ function TProject:removeScene(scene)
     table.remove(scenes, scene.id)
 end
 function TProject:setActiveScene(scene)
-    self.activeScene:onUnload()
-    self.activeScene = scene
-    self.activeScene:onLoad(scene.entities)
+    activeScene = scene
 end

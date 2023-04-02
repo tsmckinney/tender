@@ -24,8 +24,8 @@ function TScene:draw()
     self.log:info("Scene <" ..self.__tostring().."> drawn")
 end
 function TScene:addEntity(entity)
-    local entityID = math.randomseed(os.time)
-    entity.id = entityID
+    math.randomseed(os.time())
+    entityID = math.random()
     table.insert(self.entities, entityID, entity)
     table.insert(self.activeEntities, entityID, entity)
     return {entity = entity, id = entityID}
@@ -34,11 +34,11 @@ function TScene:removeEntity(entity)
     table.remove(self.activeEntities,entity.id)
     table.remove(self.entities, entity.id)
 end
-function TScene:onUnload()
-    table.remove(self.activeEntities)
+function TScene:unload()
+    --Empty the
 end
-function TScene:onLoad(activeEntities)
-    self.activeEntities = activeEntities
+function TScene:onLoad()
+    
 end
 function TScene:__tostring()
     if self.name == nil then

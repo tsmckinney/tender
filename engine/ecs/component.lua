@@ -1,6 +1,6 @@
 TComponent = Tender:extend()
-function TComponent:new(id)
-    self.id = id
+function TComponent:new()
+    
 end
 function TComponent:remove()
     

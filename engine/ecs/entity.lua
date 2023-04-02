@@ -1,9 +1,8 @@
 TEntity = Tender:extend()
 require("tender.engine.graphics.image")
 require("tender.engine.ecs.component")
-function TEntity:new(id)
-    self.components = {}
-    self.id = id
+function TEntity:new()
+    self.components = {}    
 end
 function TEntity:remove()
     
@@ -21,8 +20,8 @@ function TEntity:draw()
     self.log:info("Entity <" ..self.__tostring().."> drawn")
 end
 function TEntity:addComponent(component)
-    local componentID = math.randomseed(os.time)
-    component.id = componentID
+    math.randomseed(os.time())
+    local componentID = math.random()
     table.insert( self.components, componentID, component )
     return {component = component, id = componentID}
 end
