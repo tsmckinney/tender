@@ -35,10 +35,10 @@ function TScene:removeEntity(entity)
     table.remove(self.entities, entity.id)
 end
 function TScene:unload()
-    --Empty the
+    --Empty the activeEntities list
 end
-function TScene:onLoad()
-    
+function TScene:onLoad(enitites)
+    --Decide which entities are active
 end
 function TScene:__tostring()
     if self.name == nil then
