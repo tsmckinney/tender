@@ -11,13 +11,13 @@ function TEntity:update(dt)
     for index, value in ipairs(self.components) do
         self.components[value]:update(dt)
     end
-    self.log:info("Entity <" ..self.__tostring().."> updated")
+    self.log:info("Entity <" ..self.__tostring().."> updated",TEntity:__tostring())
 end
 function TEntity:draw()
     for index, value in ipairs(self.components) do
         self.components[value]:draw()
     end
-    self.log:info("Entity <" ..self.__tostring().."> drawn")
+    self.log:info("Entity <" ..self.__tostring().."> drawn",TEntity:__tostring())
 end
 function TEntity:addComponent(component)
     math.randomseed(os.time())

@@ -23,7 +23,7 @@ function TProject:update(dt)
         end
     end
     if self.debug then
-        self.log:info("Project <" ..self.name.."> updated")
+        self.log:info("Project <" ..self.name.."> updated",self.name)
     end
 end
 function TProject:draw()
@@ -36,7 +36,7 @@ function TProject:draw()
         end
     end
     if self.debug then
-        self.log:info("Project <" ..self.name.."> drawn")
+        self.log:info("Project <" ..self.name.."> drawn",self.name)
     end
 end
 function TProject:addScene(scene)

@@ -11,7 +11,7 @@ function TWindow:new(name)
     x,y = love.window.getDesktopDimensions()
     love.window.setMode(x/4*3,y/4*3,{fullscreen = false})
     love.window.setTitle(name)
-    log:info("Window opened")
+    log:info("Window opened", TWindow:__tostring())
 end
 
 function TWindow:setMode(w,h,s)
@@ -28,5 +28,8 @@ end
 function TWindow:close()
     love.window.close()
     isWindowOpen = false
-    log:info("Window closed. Open the TWindow with (whatever value name you assign to the engine).window:setMode.")
+    log:info("Window closed. Open the TWindow with (whatever value name you assign to the engine).window:setMode.", TWindow:__tostring())
+end
+function TWindow:__tostring()
+    return "TWindow"
 end

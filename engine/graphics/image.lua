@@ -1,6 +1,7 @@
 TImage = Tender:extend()
-
+require("tender.engine.common.logging")
 function TImage:new()
+    self.log = TLogging()
 end
 function TImage:load(link,flags)
     flags = flags or {}
@@ -9,6 +10,7 @@ function TImage:load(link,flags)
     image.dimensions = image.tex:getPixelDimensions()
     image.width = image.tex:getWidth()
     image.height = image.tex:getHeight()
+    self.log:info("Image loaded: "..link.."with flags " .. flags, TImage:__tostring())
     return image
 end
 function TImage:update(dt)

@@ -15,13 +15,13 @@ function TScene:update(dt)
     for index, value in ipairs(self.entities) do
         self.entities[value]:update(dt)
     end
-    self.log:info("Scene <" ..self.__tostring().."> updated")
+    self.log:info("Scene <" ..self.__tostring().."> updated",TScene:__tostring())
 end
 function TScene:draw()
     for index, value in ipairs(self.entities) do
         self.entities[value]:draw()
     end
-    self.log:info("Scene <" ..self.__tostring().."> drawn")
+    self.log:info("Scene <" ..self.__tostring().."> drawn",TScene:__tostring())
 end
 function TScene:addEntity(entity)
     math.randomseed(os.time())
