@@ -1,15 +1,10 @@
-TComponent = Tender:extend()
-function TComponent:new()
+--You should probably extend this class when creating new components,
+--but it's okay if you just want to use this as a template.
+TEComponent = Tender:extend()
+
+function TEComponent:new()
     
 end
-function TComponent:remove()
+function TEComponent:remove()
     
-end
-function TComponent:update(dt)
-end
-function TComponent:draw()
-    
-end
-function TComponent:__tostring()
-    return "TComponent"
 end
