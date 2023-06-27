@@ -8,5 +8,5 @@ WARNING: This project is currently a work in progress. Some stuff might not work
 
 ## Thanks:
 * To rxi for Classic
-* To Monogame Mastery (a book from Apress) for giving me a nice little roadmap for this engine
+* To Monogame Mastery (a book from Apress) for helping me out a little with this engine
 
