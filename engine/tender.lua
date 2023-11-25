@@ -4,36 +4,28 @@ require("tender.engine.common.window")
 require("tender.engine.common.logging")
 require("tender.engine.graphics.image")
 require("tender.engine.graphics.debugGrid")
-function Tender:new(name, debugMode, settings)
-    self.debug = debugMode
+require("tender.engine.ecs.project")
+function Tender:new(name, settings)
+    self.settings = settings or {}
     --If debug mode is enabled, use settings and enable the grid.
     --If not, just enable everything except the debug stuff.
-    if self.debug then
-        self.settings = settings
-        if self.settings.window == true or self.settings.everything == true then
-            self.window = TWindow(name)
-        end
-        if self.settings.log == true or self.settings.everything == true then
-            self.log = TLogging()
-        end
-        if self.settings.img == true or self.settings.everything == true then
-            self.imgload = TImage()
-        end
-        self.debugGrid = TDebugGrid(1,self.debug)
-        self.log:warn("WARNING: Debug mode is enabled. Adjusting certain parameters such as the settings variable may break your project. Use with caution.", "Tender")
-    else
-        self.window = TWindow(name)
-        self.log = TLogging()
-        self.imgload = TImage()
+    self.window = TWindow(name)
+    self.log = TLogging()
+    self.imgload = TImage()
+    self.ecs = TProject()
+    if settings and settings.grid == true then
+        self.debugGrid = TDebugGrid()
     end
 end
 function Tender:update(dt)
-
+    self.ecs:update(dt)
+    love.math.setRandomSeed(os.time())
 end
 function Tender:draw()
-    if self.debug then
+    if self.settings and self.settings.grid then
         self.debugGrid:draw()
     end
+    self.ecs:draw()
 end
 function Tender:quit()
     love.event.quit()

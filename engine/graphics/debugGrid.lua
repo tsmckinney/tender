@@ -1,4 +1,4 @@
-TDebugGrid = Tender:extend()
+TDebugGrid = Object:extend()
 
 function TDebugGrid:new(gsize,debug)
     self.gridSize = gsize

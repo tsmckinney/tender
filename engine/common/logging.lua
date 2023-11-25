@@ -1,4 +1,4 @@
-TLogging = Tender:extend()
+TLogging = Object:extend()
 
 function TLogging:new()
     
