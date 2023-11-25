@@ -8,10 +8,6 @@ WARNING: This project is currently a work in progress. Some stuff might not work
 
 ## Thanks:
 * To rxi for Classic
-<<<<<<< HEAD
-* To Monogame Mastery (a book from Apress) for giving me a nice little roadmap for this engine
-* to 
-=======
 * To Monogame Mastery (a book from Apress) for helping me out a little with this engine
->>>>>>> dcb3857bd164a8f7da12a515e7211716f678d050
-
+* To a327ex for helping out with the entity manager
+* And to everyone else who helped make this project possible
