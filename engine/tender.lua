@@ -19,7 +19,7 @@ function Tender:new(name, settings)
 end
 function Tender:update(dt)
     self.ecs:update(dt)
-    love.math.setRandomSeed(os.time())
+    
 end
 function Tender:draw()
     if self.settings and self.settings.grid then
