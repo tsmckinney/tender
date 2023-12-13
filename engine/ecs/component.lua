@@ -8,6 +8,7 @@ function TComponent:new(thing,args)
             self[key]=value
         end
     end
+    self.thing = thing
 end
 function TComponent:update(dt)
     
