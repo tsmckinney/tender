@@ -15,5 +15,12 @@ function Transform:update(dt)
     
 end
 function Transform:draw()
-    
+    love.graphics.translate(self.x,self.y)
+    love.graphics.rotate(self.r)
+    love.graphics.scale(self.sx,self.sy)
+end
+function Transform:revertChanges()
+    love.graphics.translate(-self.x,-self.y)
+    love.graphics.rotate(-self.r)
+    love.graphics.scale(-self.sx,-self.sy)
 end

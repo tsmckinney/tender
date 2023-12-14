@@ -28,6 +28,9 @@ function Thing:draw()
     if self.components then
         for key, value in pairs(self.components) do
             self.components[key]:draw()
+            if self.components[key].is(Transform) then
+                self.components[key]:revertChanges()
+            end
         end
     end
 end
