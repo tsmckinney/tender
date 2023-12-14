@@ -29,6 +29,6 @@ function TProject:enterSpace(space, ...)
     end
 end
 function TProject:leaveSpace(space, ...)
-    self.spaces[space.id]:onExit()
+    space:onExit()
     table.remove(self.spaces, space.id)
 end

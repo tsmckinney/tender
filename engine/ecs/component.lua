@@ -9,6 +9,7 @@ function TComponent:new(thing,args)
         end
     end
     self.thing = thing
+    self.name = ""
 end
 function TComponent:update(dt)
     

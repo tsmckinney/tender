@@ -10,12 +10,9 @@ function Thing:new(x, y, args)
             self[key]=value
         end
     end
-    self.x = x
-    self.y = y
     self.uuid = makeUUID()
     self.alive = true
     self.components = {}
-    table.insert(self.components, Transform(self, {}))
 end
 function Thing:update(dt)
     if self.components then
@@ -28,9 +25,6 @@ function Thing:draw()
     if self.components then
         for key, value in pairs(self.components) do
             self.components[key]:draw()
-            if self.components[key].is(Transform) then
-                self.components[key]:revertChanges()
-            end
         end
     end
 end

@@ -31,7 +31,7 @@ function TSpace:onEnter()
     
 end
 function TSpace:onExit()
-    
+    table.remove(self.things)
 end
 function TSpace:addThing(thing)
     table.insert(self.things, thing)
