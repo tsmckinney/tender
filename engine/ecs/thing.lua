@@ -1,5 +1,6 @@
 --Makes an entity in the scene.
 require("tender.engine.common.utils")
+require("tender.engine.ecs.components.transform")
 Thing = Object:extend()
 
 function Thing:new(x, y, args)
@@ -14,6 +15,7 @@ function Thing:new(x, y, args)
     self.uuid = makeUUID()
     self.alive = true
     self.components = {}
+    table.insert(self.components, Transform(self, {}))
 end
 function Thing:update(dt)
     if self.components then

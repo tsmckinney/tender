@@ -1,7 +1,6 @@
 TPoint = Object:extend()
 require("tender.engine.common.logging")
-function TPoint:new()
-    self.log = TLogging()
+function TPoint:new(x,y)
     self.x = 0
     self.y = 0
 end
