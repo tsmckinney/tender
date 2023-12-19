@@ -25,10 +25,21 @@ function TProject:enterSpace(space, ...)
     for k, v in pairs(self.spaces) do
         if self.spaces[k].name == space.name then
             self.spaces[k].id = k
+            self.spaces[k]:onEnter()
         end
     end
 end
 function TProject:leaveSpace(space, ...)
-    space:onExit()
-    table.remove(self.spaces, space.id)
+    for k, v in pairs(self.spaces) do
+        if self.spaces[k].name == space.name then
+            self.spaces[k]:onExit()
+            table.remove(self.spaces, k)
+        end
+    end
+end
+function TProject:switchSpace(space, ...)
+    for k, v in pairs(self.spaces) do
+        self:leaveSpace(self.spaces[k])
+    end
+    self:enterSpace(space)
 end

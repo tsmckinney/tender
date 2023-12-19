@@ -3,6 +3,7 @@ require("tender.engine.tender")
 TSpace = Object:extend()
 require("tender.engine.common.utils")
 require("tender.engine.ecs.thing")
+require("tender.engine.ecs.blackscreen")
 function TSpace:new()
     self.things = {}
     self.name = ""
@@ -28,7 +29,8 @@ function TSpace:draw()
     end
 end
 function TSpace:onEnter()
-    
+    self:addThing(TBlackScreen(0,0,{}))
+    self:draw()
 end
 function TSpace:onExit()
     table.remove(self.things)
