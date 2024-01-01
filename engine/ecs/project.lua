@@ -38,8 +38,10 @@ function TProject:leaveSpace(space, ...)
     end
 end
 function TProject:switchSpace(space, ...)
-    for k, v in pairs(self.spaces) do
-        self:leaveSpace(self.spaces[k])
+    if self.spaces then
+        for k, v in pairs(self.spaces) do
+            self:leaveSpace(self.spaces[k])
+        end
     end
     self:enterSpace(space)
 end

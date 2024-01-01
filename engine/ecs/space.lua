@@ -12,7 +12,7 @@ end
 function TSpace:update(dt)
     if self.things then
         for k, v in pairs(self.things) do
-            self.things[k]:update(dt)
+            v:update(dt)
         end
         for i = #self.things, 1,-1 do
             if self.things[i].alive == false then
@@ -24,7 +24,7 @@ end
 function TSpace:draw()
     if self.things then
         for key, value in pairs(self.things) do
-            self.things[key]:draw()
+            value:draw()
         end
     end
 end
