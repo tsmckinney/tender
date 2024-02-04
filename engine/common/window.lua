@@ -15,7 +15,7 @@ end
 
 function TWindow:setMode(w,h,s)
     if isWindowOpen == true then
-        love.window.updateMode(w,h,s)
+        love.window.updateMode(0,w,h,s)
     else
         isWindowOpen = true
         love.window.setMode(w,h,s)
