@@ -14,8 +14,8 @@ function Tender:new(name, settings)
     self.log = TLogging()
     self.imgload = TImage()
     self.ecs = TProject()
-    if self.settings and self.settings.keyMap then
-        self.input = TIMap(settings.keyMap)
+    if self.settings and self.settings.keyMap or self.settings.mouseMap or self.settings.padMap then
+        self.input = TIMap(settings.keyMap, settings.mouseMap, settings.padMap)
     end
     if settings and settings.grid == true then
         self.debugGrid = TDebugGrid()
