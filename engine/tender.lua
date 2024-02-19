@@ -5,7 +5,7 @@ require("tender.engine.common.logging")
 require("tender.engine.graphics.image")
 require("tender.engine.graphics.debugGrid")
 require("tender.engine.ecs.project")
-require("tender.engine.input.inputMap")
+require("tender.engine.input.inputSystem")
 function Tender:new(name, settings)
     self.settings = settings or {}
     --If debug mode is enabled, use settings and enable the grid.
@@ -15,7 +15,7 @@ function Tender:new(name, settings)
     self.imgload = TImage()
     self.ecs = TProject()
     if self.settings and self.settings.keyMap or self.settings.mouseMap or self.settings.padMap then
-        self.input = TIMap(settings.keyMap, settings.mouseMap, settings.padMap)
+        self.input = TInput(settings.keyMap, settings.mouseMap, settings.padMap)
     end
     if settings and settings.grid == true then
         self.debugGrid = TDebugGrid()

@@ -1,6 +1,6 @@
-TIMap = Object:extend()
+TInput = Object:extend()
 
-function TIMap:new(keyMap, mouseMap, padMap)
+function TInput:new(keyMap, mouseMap, padMap)
     self.keyActions = {}
     self.mouseActions = {}
     self.padActions = {}
@@ -8,7 +8,7 @@ function TIMap:new(keyMap, mouseMap, padMap)
     self.mouseMap = mouseMap or {}
     self.padMap = padMap or {}
 end
-function TIMap:update(dt)
+function TInput:update(dt)
     for k, v in pairs(self.keyMap) do
         if love.keyboard.isDown(k) then
             v()
@@ -28,6 +28,6 @@ function TIMap:update(dt)
         end
     end
 end
-function TIMap:draw()
+function TInput:draw()
     
 end
