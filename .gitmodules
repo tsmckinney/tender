@@ -1,0 +1,3 @@
+[submodule "engine/input/baton"]
+	path = engine/input/baton
+	url = https://github.com/tesselode/baton
