@@ -13,11 +13,21 @@ function Thing:new(x, y, args)
     self.alive = true
     self.x = 0
     self.y = 0
+    self.components = {}
 end
 function Thing:update(dt)
+    if self.components then
+        for key, value in pairs(self.components) do
+            value:update(dt)
+        end
+    end
 end
 function Thing:draw()
-
+    if self.components then
+        for key, value in pairs(self.components) do
+            value:draw()
+        end
+    end
 end
 function Thing:getUUID()
     return self.uuid

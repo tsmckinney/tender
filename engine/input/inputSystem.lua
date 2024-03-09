@@ -1,5 +1,5 @@
 TInput = Object:extend()
-local baton = require("baton.baton")
+local baton = require("tender.engine.input.baton.baton")
 function TInput:new(map, pairs,deadzone)
     self.actions = {}
     self.map = baton.new({
