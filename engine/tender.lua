@@ -36,6 +36,3 @@ function Tender:draw()
         self.input:draw(dt)
     end
 end
-function Tender:quit()
-    love.event.quit()
-end
