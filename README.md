@@ -16,5 +16,5 @@ It's still in development, so some functionality might not work.
 * To rxi for Classic
 * To tesselode for baton (which is used for the input system)
 * To Monogame Mastery (a book from Apress) for helping me out a little with this engine
-* To a327ex for helping out with the entity manager
+* To a327ex for providing a tutorial I followed, which can be found [here](https://github.com/a327ex/blog/issues/30)
 * And to everyone else who helped make this project possible
