@@ -13,8 +13,7 @@ It's still in development, so some functionality might not work.
 * [Classic by rxi](https://github.com/rxi/classic)
 
 ## Thanks:
-* To rxi for Classic
-* To tesselode for baton (which is used for the input system)
+* To [rxi](https://github.com/rxi) for Classic
+* To tesselode for [baton](https://github.com/tesselode/baton) (which is used for the input system)
 * To Monogame Mastery (a book from Apress) for helping me out a little with this engine
-* To a327ex for providing a tutorial I followed, which can be found [here](https://github.com/a327ex/blog/issues/30)
-* And to everyone else who helped make this project possible
+* To [a327ex](https://github.com/a327ex) for providing a tutorial I followed, which can be found [here](https://github.com/a327ex/blog/issues/30)
